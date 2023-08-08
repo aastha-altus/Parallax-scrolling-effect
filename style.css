@@ -1,0 +1,177 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+@keyframes fadeIn {
+    0% {
+
+        opacity: 0;
+        visibility: hidden;
+    }
+    100% {
+
+        opacity: 1;
+         visibility: visible;
+     }
+}
+
+@keyframes slideInBottom {
+    0% {
+        transform: translateY(5000px);
+        visibility: hidden;
+    }
+    100% {
+        transform: translateX(0);
+        visibility: visible;
+    }
+}
+
+.fadeIn{
+  animation: fadeIn ease 1s;
+}
+
+
+body{
+  background: #32455b;
+  min-height: 2000px;
+}
+
+section:before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to top, #32455b, transparent);
+  z-index: 3;
+}
+section:after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /*background: #0a2a43;*/
+  z-index: 10000;
+  mix-blend-mode: color;
+}
+section{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+section img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.textBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#moon{
+  animation: fadeIn linear 500ms;
+    animation-delay: 1.5s;
+    visibility: hidden;
+    animation-fill-mode: forwards;
+}
+
+#text{
+  position: absolute;
+  color: #fff;
+  display: inline-flex;
+  font-size: 4rem;
+  z-index: 4;
+  padding: 0.75rem;
+  background-color: rgba(0,0,0.075);
+  transform: translateY(-700px);
+}
+
+#bg{
+  animation: fadeIn linear 1s;
+  animation-delay: 1s;
+    visibility: hidden;
+    animation-fill-mode: forwards;
+}
+
+
+#para{
+  font-size: 2rem;
+  position: absolute;
+  z-index: 4;
+  color: #fff;
+  padding: 0.75rem;
+  margin-top: 2rem;
+  background-color: rgba(0,0,0.075);
+  transform: translateY(700px);
+}
+
+#road{
+  z-index: 2;
+  animation: slideInBottom 500ms linear;
+  animation-delay: 2s;
+    visibility: hidden;
+    animation-fill-mode: forwards;
+}
+
+.hero{
+    background-color: lightblue;
+    height: 700px;
+    width: 100%;
+    margin: 50% 0 0 0;
+    position: relative;
+}
+
+.hero .bgOverlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(180.77deg,rgba(10,44,55,.75) 37.94%,rgba(20,37,69,.15) 94.62%);
+    mix-blend-mode: multiply;
+}
+
+.hero img{
+    width: 100%;
+    height: 100%;
+}
+
+.heroText{
+    position: absolute;
+    top: 50%;
+    width: 50%;
+    margin-left: 20%;
+}
+
+.hero .heading{
+    color: white;
+}
+
+.hero .desc{
+    margin: 1.8rem 0;
+    font-size: 1rem;
+    color: white;
+}
+
+.hero .button{
+    background-color: #0028d7;
+    color: #fff;
+    border-radius: 50rem;
+    padding: 0.75rem 1rem;
+}

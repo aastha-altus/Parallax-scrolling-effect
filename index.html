@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Parallax Scrolling effect</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+  </head>
+  <body>
+    <section>
+    <img alt="cityscape" src="images/cityscape.jpeg" id="bg"/>
+    <img alt="moon" src="images/moon.png" id="moon"/>
+<!--    <img alt="building" src="images/building.jpeg" id="building"/>-->
+    <img alt="road" src="images/road.png" id="road"/>
+<!--      <div class="textBox">-->
+        <h2 id="text">Asset and fund intelligence</h2>
+        <p id="para">Local expertise to better manage your global property tax and business rates liabilities.</p>
+<!--      </div>-->
+    </section>
+
+     <div class="hero">
+         <div class="bgOverlay"></div>
+          <img src="https://images.ctfassets.net/8jgyidtgyr4v/61J1zPM1K6eAPs6MWEuvp/560de6d57a3b3ff59b18bf53124cc5f7/Insight_301_-_The_State_of_Data_Science_in_CRE_Investing.jpg?w=1500&h=811&q=80&fm=webp"/>
+          <div class="heroText">
+            <h1 class="heading">Data science and advanced analytics in commercial real estate investing</h1>
+            <p class="desc">Discover how AI, data science, and advanced analytics are being rapidly adopted in CRE. Stay informed about these technologies with curated industry content on the competitive landscape, success stories, and real-world applications.</p>
+            <a class="button"> Explore our data science hub</a>
+          </div>
+      </div>
+
+    <script type="text/javascript">
+      let bg = document.getElementById("bg");
+      let moon = document.getElementById("moon");
+      // let building = document.getElementById("building");
+      let road = document.getElementById("road");
+      let text = document.getElementById("text");
+      let para = document.getElementById("para");
+      let body = document.body,
+          html = document.documentElement;
+
+      window.addEventListener('scroll', function(){
+        const value = window.scrollY
+        const height = window.innerHeight;
+        const fullHeight = Math.max( body.scrollHeight, body.offsetHeight,
+                       html.clientHeight, html.scrollHeight, html.offsetHeight );
+
+        const scrollableHeight = fullHeight - height;
+
+        bg.style.top = value * 0.5 + 'px';
+        moon.style.left = -value * 0.5 + 'px';
+        // building.style.top = -value * 0.15 + 'px';
+        road.style.top = value * 0.15 + 'px';
+        // text.style.left = (value * 1.5) - 500 + 'px';
+        // para.style.left = (value * 0.7) - 1500 + 'px';
+
+        // text.style.top = value * 1 + 'px';
+        // para.style.top = value * 1  + 'px';
+
+        text.style.transform = `translateY(${-700 * ( 1 - (value / scrollableHeight)) + 100}px)`;
+        para.style.transform = `translateY(${700 * ( 1 - (value / scrollableHeight)) + 200}px)`;
+
+        console.log('height', height);
+        console.log('scroll', value);
+        console.log('scollableHeight', scrollableHeight);
+		console.log('minus', value / scrollableHeight);
+        console.log('text calc', `translateY(${-700 * ( 1 - (value / scrollableHeight)) + 100}px)`);
+      })
+    </script>
+  </body>
+</html>
